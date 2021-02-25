@@ -24,8 +24,8 @@ namespace CoffeeBox.Web.Controllers
         public ActionResult GetProduct()
         {
             _logger.LogInformation("Fetching all products");
-            _productService.GetAllProducts();
-            return Ok("");
+            var products = _productService.GetAllProducts();
+            return Ok(products);
         }
     }
 }

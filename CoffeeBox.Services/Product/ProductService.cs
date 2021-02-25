@@ -87,7 +87,6 @@ namespace CoffeeBox.Services.Product
                     IsSuccess = false
                 };
             }
-            
         }
 
         /// <summary>
@@ -95,7 +94,7 @@ namespace CoffeeBox.Services.Product
         /// </summary>
         /// <returns></returns>
         public List<Data.Models.Product> GetAllProducts()
-        {
+             {
             return _db.Products.ToList();
         }
 
