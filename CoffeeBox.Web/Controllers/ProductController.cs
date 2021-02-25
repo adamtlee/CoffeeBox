@@ -1,4 +1,5 @@
 ﻿using CoffeeBox.Services.Product;
+using CoffeeBox.Web.Serialization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -25,7 +26,9 @@ namespace CoffeeBox.Web.Controllers
         {
             _logger.LogInformation("Fetching all products");
             var products = _productService.GetAllProducts();
-            return Ok(products);
+            var productViewModels = products
+                .Select(product => ProductMapper.SerializeProductModel(product));
+            return Ok(productViewModels);
         }
     }
 }
