@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CoffeeBox.Web.Serialization
 {
-    public class ProductMapper
+    public static class ProductMapper
     {
         /// <summary>
         /// Maps a Product data model to a ProductModel view model
