@@ -30,5 +30,13 @@ namespace CoffeeBox.Web.Controllers
                 .Select(product => ProductMapper.SerializeProductModel(product));
             return Ok(productViewModels);
         }
+        
+        [HttpPatch("/api/product/{id}")]
+        public ActionResult ArchiveProduct(int id)
+        {
+            _logger.LogInformation("Archiving product");
+            var archiveResult = _productService.ArchiveProduct(id);
+            return Ok(archiveResult);
+        }
     }
 }
