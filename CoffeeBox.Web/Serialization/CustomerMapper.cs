@@ -74,6 +74,7 @@ namespace CoffeeBox.Web.Serialization
         {
             return new CustomerAddress
             {
+                Id = address.Id,
                 AddressLine1 = address.AddressLine1,
                 AddressLine2 = address.AddressLine2,
                 City = address.City,

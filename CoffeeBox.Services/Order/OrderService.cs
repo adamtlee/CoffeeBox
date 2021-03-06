@@ -37,7 +37,7 @@ namespace CoffeeBox.Services.Order
         /// </summary>
         /// <param name="order"></param>
         /// <returns></returns>
-        public ServiceResponse<bool> GenerateInvoiceForOrder(SalesOrder order)
+        public ServiceResponse<bool> GenerateOpenOrder(SalesOrder order)
         {
             var now = DateTime.UtcNow;
 

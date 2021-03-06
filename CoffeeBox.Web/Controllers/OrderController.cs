@@ -1,5 +1,6 @@
 ﻿using CoffeeBox.Services.Customer;
 using CoffeeBox.Services.Order;
+using CoffeeBox.Web.Serialization;
 using CoffeeBox.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -33,6 +34,7 @@ namespace CoffeeBox.Web.Controllers
             _logger.LogInformation("Generating invoice");
             var order = OrderMapper.SerializeInvoiceToOrder(invoice);
             order.Customer = _customerService.GetById(invoice.CustomerId);
+            _orderService.GenerateOpenOrder(order);
             return Ok();
         }
     }

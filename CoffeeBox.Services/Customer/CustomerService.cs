@@ -19,7 +19,7 @@ namespace CoffeeBox.Services.Customer
         /// <summary>
         ///  Adds a new Customer record
         /// </summary>
-        /// <param name="customer"></param>
+        /// <param name="customer">Customer instance</param>
         /// <returns></returns>
         public ServiceResponse<Data.Models.Customer> CreateCustomer(Data.Models.Customer customer)
         {
