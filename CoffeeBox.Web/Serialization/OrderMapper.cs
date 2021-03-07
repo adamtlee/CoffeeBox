@@ -40,7 +40,7 @@ namespace CoffeeBox.Web.Serialization
         /// </summary>
         /// <param name="orders"></param>
         /// <returns></returns>
-        public static List<OrderModel> SerializingOrdersToViewModels(IEnumerable<SalesOrder> orders)
+        public static List<OrderModel> SerializeOrdersToViewModels(IEnumerable<SalesOrder> orders)
         {
             return orders.Select(order => new OrderModel
             {
