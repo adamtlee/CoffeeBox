@@ -44,6 +44,10 @@ namespace CoffeeBox.Web.Controllers
         [HttpPatch("/api/inventory")]
         public ActionResult UpdateInventory([FromBody] ShipmentModel shipment)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             _logger.LogInformation(
                 $"Updating inventory for {shipment.ProductId}: " +
                 $"Adjustment: {shipment.Adjustment}");

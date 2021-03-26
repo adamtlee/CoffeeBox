@@ -1,5 +1,6 @@
 ﻿using CoffeeBox.Services.Product;
 using CoffeeBox.Web.Serialization;
+using CoffeeBox.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -21,6 +22,29 @@ namespace CoffeeBox.Web.Controllers
             _productService = productService;
         }
 
+        /// <summary>
+        /// Adds a new product
+        /// </summary>
+        /// <param name="product"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult AddProduct([FromBody] ProductModel product)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            _logger.LogInformation("Adding product");
+            var newProduct = ProductMapper.SerializeProductModel(product);
+            var newProductResponse = _productService.CreateProduct(newProduct);
+            return Ok(newProductResponse);
+        }
+
+
+        /// <summary>
+        /// Returns all products
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("/api/product")]
         public ActionResult GetProduct()
         {
@@ -31,6 +55,11 @@ namespace CoffeeBox.Web.Controllers
             return Ok(productViewModels);
         }
         
+        /// <summary>
+        /// Archives an existing product
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpPatch("/api/product/{id}")]
         public ActionResult ArchiveProduct(int id)
         {

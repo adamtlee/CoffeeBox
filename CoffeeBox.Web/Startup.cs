@@ -17,6 +17,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json.Serialization;
 
 namespace CoffeeBox.Web
 {
@@ -33,7 +34,13 @@ namespace CoffeeBox.Web
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(opts =>
+            {
+                opts.SerializerSettings.ContractResolver = new DefaultContractResolver
+                {
+                    NamingStrategy = new CamelCaseNamingStrategy()
+                };
+            });
 
             services.AddDbContext<CoffeeBoxDbContext>(opts =>
             {
@@ -64,6 +71,17 @@ namespace CoffeeBox.Web
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(builder =>
+                builder
+                    .WithOrigins(
+                        "http://localhost:8080",
+                        "http://localhost:8081",
+                        "http://localhost:8082")
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials()
+                    );
 
             app.UseAuthorization();
 
