@@ -27,7 +27,7 @@ namespace CoffeeBox.Web.Controllers
         /// </summary>
         /// <param name="product"></param>
         /// <returns></returns>
-        [HttpPost]
+        [HttpPost("/api/product")]
         public ActionResult AddProduct([FromBody] ProductModel product)
         {
             if (!ModelState.IsValid)

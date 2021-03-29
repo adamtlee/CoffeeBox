@@ -57,5 +57,45 @@ namespace CoffeeBox.Web.Controllers
             var inventory = _inventoryService.UpdateUnitsAvailable(id, adjustment);
             return Ok(inventory);
         }
+
+        [HttpGet("/api/inventory/snapshot")]
+        public ActionResult GetSnapshotHistory()
+        {
+            _logger.LogInformation("Getting snapshot history"); 
+
+            try
+            {
+                var snapshotHistory = _inventoryService.GetSnapshotHistory();
+
+                var timelineMarkers = snapshotHistory
+                    .Select(t => t.SnapshotTime)
+                    .Distinct()
+                    .ToList();
+
+                var snapshots = snapshotHistory
+                    .GroupBy(hist => hist.Product, hist => hist.QuantityOnHand,
+                    (key, g) => new ProductInventorySnapshotModel
+                    {
+                        ProductId = key.Id,
+                        QuantityOnHand = g.ToList()
+                    })
+                    .OrderBy(snapshotHistory => snapshotHistory.ProductId)
+                    .ToList();
+
+                var viewModel = new SnapshotResponse
+                {
+                    Timeline = timelineMarkers,
+                    ProductInventorySnapshots = snapshots
+                };
+
+                return Ok(viewModel);
+            } 
+            catch (Exception e)
+            {
+                _logger.LogError("Error getting snapshot History");
+                _logger.LogError(e.StackTrace);
+                return BadRequest("Error retrieving history");
+            }
+        }
     }
 }

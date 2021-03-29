@@ -72,6 +72,7 @@ namespace CoffeeBox.Web
 
             app.UseRouting();
 
+            /*
             app.UseCors(builder =>
                 builder
                     .WithOrigins(
@@ -82,7 +83,7 @@ namespace CoffeeBox.Web
                     .AllowAnyHeader()
                     .AllowCredentials()
                     );
-
+            */
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
