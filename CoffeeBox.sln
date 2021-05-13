@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26124.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoffeeBox.Data", "CoffeeBox.Data\CoffeeBox.Data.csproj", "{055AF645-1E17-481B-85BD-552665381BAF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoffeeBox.Data", "CoffeeBox.Data\CoffeeBox.Data.csproj", "{055AF645-1E17-481B-85BD-552665381BAF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoffeeBox.Services", "CoffeeBox.Services\CoffeeBox.Services.csproj", "{BC9BF516-9A04-4F90-B400-4C2E1F207CD7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoffeeBox.Services", "CoffeeBox.Services\CoffeeBox.Services.csproj", "{BC9BF516-9A04-4F90-B400-4C2E1F207CD7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoffeeBox.Test", "CoffeeBox.Test\CoffeeBox.Test.csproj", "{D34B129F-71B8-4865-993F-BE0A91485A1F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoffeeBox.Test", "CoffeeBox.Test\CoffeeBox.Test.csproj", "{D34B129F-71B8-4865-993F-BE0A91485A1F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoffeeBox.Web", "CoffeeBox.Web\CoffeeBox.Web.csproj", "{C647C066-7B1D-47F2-AD48-E02ECFBE3AB2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoffeeBox.Web", "CoffeeBox.Web\CoffeeBox.Web.csproj", "{C647C066-7B1D-47F2-AD48-E02ECFBE3AB2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,9 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{055AF645-1E17-481B-85BD-552665381BAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -72,5 +69,11 @@ Global
 		{C647C066-7B1D-47F2-AD48-E02ECFBE3AB2}.Release|x64.Build.0 = Release|Any CPU
 		{C647C066-7B1D-47F2-AD48-E02ECFBE3AB2}.Release|x86.ActiveCfg = Release|Any CPU
 		{C647C066-7B1D-47F2-AD48-E02ECFBE3AB2}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E9F1D7D9-DB74-47F1-8051-36E7FB62D99A}
 	EndGlobalSection
 EndGlobal
