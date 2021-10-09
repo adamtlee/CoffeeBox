@@ -24,11 +24,12 @@ namespace CoffeeBox.Test
             var sut = new CustomerService(context);
 
             sut.CreateCustomer(new Data.Models.Customer { Id = 23134 });
-            sut.CreateCustomer(new Data.Models.Customer { Id = -345 });
+            sut.CreateCustomer(new Data.Models.Customer { Id = 345 });
+            sut.CreateCustomer(new Data.Models.Customer { Id = 23 });
 
             var allCustomers = sut.GetAllCustomers();
 
-            allCustomers.Count.Should().Be(2);
+            allCustomers.Count.Should().Be(3);
         }
 
         [Fact]
